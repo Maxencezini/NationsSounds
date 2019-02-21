@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<!-- HEADER -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles/inline.css"> -->
+    <!-- BOOTSTRAP -->
+    <link href="styles/bootstrap.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Nations Sounds</title>
+</head>
+<!-- FIN HEADER -->
+
+<body>
+    <!-- HEADER -->
+
+    <!-- MENU LEFT -->
+
+    <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+    
+                <div class="sidebar-header">
+                    <h3 class="h3burger">Nations Sounds</h3>
+                </div>
+    
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">ACCUEIL</a>
+                    </li>
+                    <li>
+                        <a href="#">PROGRAMMATION</a>
+                    </li>
+                    <li>
+                        <a href="#">INFOS PRATIQUES</a>
+                    </li>
+                    <li>
+                        <a href="#">BILLETERIE</a>
+                    </li>
+                    <li>
+                        <a href="#">PLAN</a>
+                    </li>
+                    <li>
+                        <a href="#">BOUTIQUE</a>
+                    </li>
+                    <li>
+                        <a href="#">PARTENAIRES</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    <!-- FIN MENU LEFT -->
+
+    <header>
+        <div class="burger_top_header">
+            <a id="sidebarCollapse" href="#">
+                <span class="icone_burger">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </a>
+        </div>
+        <div class="titre_app_header">
+            <h1 class="header__title">NATIONS SOUNDS</h1>
+        </div>
+        <div class="etoile_fav_header">
+            <a href="#">
+                <span class="icone_etoile">
+                    <i class="fas fa-star"></i>
+                </span>
+            </a>
+        </div>
+    </header>
+    
+    <!-- END HEADER -->
+
+    <div id="affichartiste">
+    </div>
+
+    <!-- ___________________DEBUG MODE___________________ -->
+    <!-- <div id="debug"></div>
+    <div id="debug2"></div>
+    <div id="debug3"></div>
+    <div id="debug4"></div> -->
+    <!-- ___________________END DEBUG MODE___________________ -->
+
+    <footer>
+        <div class="mobile-app-icon-bar">
+
+            <div class="map_bot_footer">
+                <a href="#">
+                    <span class="icone_map">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </span>
+                </a>
+            </div>
+
+            <div class="logo_bot_footer">
+                <div id="carre"></div>
+                <a href="#">
+                    <span class="icone_logo">
+                        <img class="img_logo" src="img/logo_ns.svg">
+                    </span>
+                </a>
+            </div>
+
+            <div class="musique_bot_footer">
+                <a href="#">
+                    <span class="icone_musique">
+                        <i class="fas fa-music"></i>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7"
+        crossorigin="anonymous"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
