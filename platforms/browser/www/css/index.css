@@ -177,6 +177,7 @@ header {
 #affichartiste {
     display: block;
     margin-top: 17%;
+    padding-bottom: 380%;
 }
 
 .affichageArtiste1 {
@@ -379,7 +380,12 @@ footer {
 li {
     font-family: 'Raleway';
     font-weight: bold;
-    font-size: 21px;
+    font-size: 18px;
+    margin-left: 5%;
+}
+
+.svg_menu {
+    width: 20%;
 }
 
 #sidebar {
@@ -441,9 +447,10 @@ li {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding: 18px 0;
     border-bottom: 1px solid #30BF88;
-    text-align: center;
+    text-align: left;
+    display: inline;
 }
 
 #sidebar ul p {
@@ -454,7 +461,7 @@ li {
 #sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
-    display: block;
+    display: inline-block;
 }
 
 #sidebar ul li a:hover {
