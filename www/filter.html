@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test du filtrage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="filter">
+        <select id="date">
+            <option value="default" selected>Veuillez choisir une date</option>
+            <option value="Vendredi">Vendredi</option>
+            <option value="Samedi">Samedi</option>
+            <option value="Dimanche">Dimanche</option>
+        </select>
+        <select id="heure">
+            <option value="default" selected>Veuillez choisir une horaire</option>
+            <option value="20h00">20h</option>
+            <option value="22h00">22h</option>
+        </select>
+        <select id="scene">
+            <option value="default" selected>Veuillez choisir une scène</option>
+            <option value="1">Scène Principale</option>
+            <option value="2">Scène 2</option>
+            <option value="3">Scène 3</option>
+        </select>
+        <select id="genre">
+            <option value="default" selected>Veuillez choisir un genre musical</option>
+            <option value="Rap / Metal">Rap / Metal</option>
+            <option value="RAP US">RAP US</option>
+            <option value="Electro chill">Electro chill</option>
+            <option value="Rock Alternatif">Rock Alternatif</option>
+            <option value="Pop / Electro">Pop / Electro</option>
+            <option value="Electro / House">Electro / House</option>
+            <option value="Metal">Metal</option>
+            <option value="Pop / House">Pop / House</option>
+            <option value="Pop / Soul">Pop / Soul</option>
+            <option value="Dubstep">Dubstep</option>
+            <option value="Dance / Electro">Dance / Electro</option>
+            <option value="Trap / Hip-Hop">Trap / Hip-Hop</option>
+            <option value="Hip-Hop / Soul">Hip-Hop / Soul</option>
+        </select>
+        
+        <button type="submit" onclick="recupChoix()">Rechercher</button>
+    </div>
+    <br>
+    <div id="contenu"></div>
+    <!-- <script>recupChoix();</script> -->
+</body>
+
+</html>
