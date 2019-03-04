@@ -388,6 +388,22 @@ li {
     width: 20%;
 }
 
+.reseausociaux {
+    width: 33%;
+    text-align: center;
+    margin-right: 20px;
+    font-size: xx-large;
+}
+
+.lirs {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.lienrs {
+    color: white;
+}
+
 #sidebar {
     width: 250px;
     position: fixed;
