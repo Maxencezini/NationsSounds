@@ -264,3 +264,65 @@ function myFunction() {
     }
 } */
 
+
+/*
+/////////////// Filtrage ///////////////////
+
+function recupChoix() {
+    let url = 'http://antonin-piroth.fr/wp-json/wp/v2/posts/?per_page=100';
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => afficherFilter(out))
+        .catch(err => { throw err });
+    console.log('Json Done');
+}
+
+function afficherFilter(resultat) {
+    clearBox('contenu');
+    console.log('Le tableau :');
+    console.log(resultat);
+    console.log('La taille du tableau : ' + resultat.length);
+
+    var strDate = document.getElementById('date');
+    var strScene = document.getElementById('scene');
+    var strHeure = document.getElementById('heure');
+    var strGenre = document.getElementById('genre');
+    var i;
+    for (i = 0; i < resultat.length; i++) {
+        if ((strDate.value == "default" || strDate.options[strDate.selectedIndex].value == resultat[i].acf.date_concert) &&
+            (strScene.value == "default" || strScene.options[strScene.selectedIndex].value == resultat[i].acf.scene) &&
+            (strHeure.value == "default" || strHeure.options[strHeure.selectedIndex].value == resultat[i].acf.heure_concert) &&
+            (strGenre.value == "default" || strGenre.options[strGenre.selectedIndex].value == resultat[i].acf.type_musique)
+            ) {
+            if (strDate.options[strDate.selectedIndex].value == "default" && 
+            strScene.options[strScene.selectedIndex].value == "default" && 
+            strHeure.options[strHeure.selectedIndex].value == "default" &&
+            strGenre.options[strGenre.selectedIndex].value == "default") {
+                alert('Remplissez les champs');
+                break;
+            } else {
+                var leContenu = document.getElementById('contenu');
+                var nouveauDiv = document.createElement('div');
+                nouveauDiv.classList.add('divClass');
+                var bannerDiv = document.createElement('img');
+                bannerDiv.classList.add('banner');
+                var artistDiv = document.createElement('a');
+                artistDiv.classList.add('aClass');
+                var bannerUrl = resultat[i].acf.banniere.sizes.thumbnail;
+                bannerDiv.src = bannerUrl;
+                var artistID = resultat[i].id;
+                artistDiv.innerHTML = resultat[i].acf.nom_artiste;
+                artistDiv.href = "artist.html?id=" + artistID;
+                nouveauDiv.appendChild(bannerDiv);
+                nouveauDiv.appendChild(artistDiv);
+                leContenu.appendChild(nouveauDiv);
+            }
+        }
+    }
+}
+
+//////// Nettoyage d'une DIV ///////
+function clearBox(elementID) {
+    document.getElementById(elementID).innerHTML = "";
+}
