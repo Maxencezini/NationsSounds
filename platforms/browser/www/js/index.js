@@ -151,19 +151,26 @@ var app = {
                 } else {
                     var leContenu = document.getElementById('contenu');
                     var nouveauDiv = document.createElement('div');
-                    nouveauDiv.classList.add('divClass');
-                    var bannerDiv = document.createElement('img');
-                    bannerDiv.classList.add('banner');
+                    nouveauDiv.classList.add('affichageArtiste1');
+
+                    var nouveauDiv2 = document.createElement('div');
+                    nouveauDiv2.classList.add('hello');
+
                     var artistDiv = document.createElement('a');
                     artistDiv.classList.add('aClass');
-                    var bannerUrl = resultat[i].acf.banniere.sizes.thumbnail;
+
+                    var bannerDiv = document.createElement('img');
+                    bannerDiv.classList.add('banner');
+
+                    var bannerUrl = resultat[i].acf.banniere.sizes.large;
                     bannerDiv.src = bannerUrl;
                     var artistID = resultat[i].id;
-                    artistDiv.innerHTML = resultat[i].acf.nom_artiste;
-                    artistDiv.href = "artist.html?id=" + artistID;
-                    nouveauDiv.appendChild(bannerDiv);
-                    nouveauDiv.appendChild(artistDiv);
+                    artistDiv.href = "artist.html?id=" + artistID + "";
+                    nouveauDiv2.appendChild(artistDiv);
+                    artistDiv.appendChild(bannerDiv)
+                    nouveauDiv.appendChild(nouveauDiv2);
                     leContenu.appendChild(nouveauDiv);
+
                 }
             }
         }

@@ -172,6 +172,7 @@ header {
 .banner {
     width: 100%;
     border-radius: 5px;
+    text-align: left;
 }
 
 #affichartiste {
