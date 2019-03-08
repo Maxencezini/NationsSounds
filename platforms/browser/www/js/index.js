@@ -36,6 +36,10 @@ var app = {
     onDeviceReady: function () {
         app.recupInfo('https://antonin-piroth.fr/wp-json/wp/v2/posts?per_page=100');
         app.burgertop();
+        app.recupID();
+        app.recupInfoArtist();
+        app.afficherFilter();
+        app.clearBox();
     },
 
     recupInfo: function (data) {
@@ -96,6 +100,88 @@ var app = {
 
 
     },
+    recupID: function() {
+        if ((window.location.href).indexOf('?') != -1) {
+            var queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1);
+    
+            // "queryString" will now contain id=/article.id/
+    
+            var value = (queryString.split('='))[1];
+    
+            // "value" will now contain /article.id/
+    
+            console.log(value);
+            recupInfoArtist(value);
+        }
+    },
+
+    recupInfoArtist:function(data) {
+        let url = "https://antonin-piroth.fr/wp-json/wp/v2/posts/" + data;
+    
+        fetch(url)
+            .then(res => res.json())
+            .then((out) => remplitDocumentArtist(out))
+            .catch(err => { throw err });
+        console.log('Json Done');
+    },
+
+    afficherFilter:function(resultat) {
+        app.clearBox('contenu');
+        console.log('Le tableau :');
+        console.log(resultat);
+        console.log('La taille du tableau : ' + resultat.length);
+    
+        var strDate = document.getElementById('date');
+        var strScene = document.getElementById('scene');
+        var strHeure = document.getElementById('heure');
+        var strGenre = document.getElementById('genre');
+        var i;
+        for (i = 0; i < resultat.length; i++) {
+            if ((strDate.value == "default" || strDate.options[strDate.selectedIndex].value == resultat[i].acf.date_concert) &&
+                (strScene.value == "default" || strScene.options[strScene.selectedIndex].value == resultat[i].acf.scene) &&
+                (strHeure.value == "default" || strHeure.options[strHeure.selectedIndex].value == resultat[i].acf.heure_concert) &&
+                (strGenre.value == "default" || strGenre.options[strGenre.selectedIndex].value == resultat[i].acf.type_musique)
+                ) {
+                if (strDate.options[strDate.selectedIndex].value == "default" && 
+                strScene.options[strScene.selectedIndex].value == "default" && 
+                strHeure.options[strHeure.selectedIndex].value == "default" &&
+                strGenre.options[strGenre.selectedIndex].value == "default") {
+                    alert('Remplissez les champs');
+                    break;
+                } else {
+                    var leContenu = document.getElementById('contenu');
+                    var nouveauDiv = document.createElement('div');
+                    nouveauDiv.classList.add('divClass');
+                    var bannerDiv = document.createElement('img');
+                    bannerDiv.classList.add('banner');
+                    var artistDiv = document.createElement('a');
+                    artistDiv.classList.add('aClass');
+                    var bannerUrl = resultat[i].acf.banniere.sizes.thumbnail;
+                    bannerDiv.src = bannerUrl;
+                    var artistID = resultat[i].id;
+                    artistDiv.innerHTML = resultat[i].acf.nom_artiste;
+                    artistDiv.href = "artist.html?id=" + artistID;
+                    nouveauDiv.appendChild(bannerDiv);
+                    nouveauDiv.appendChild(artistDiv);
+                    leContenu.appendChild(nouveauDiv);
+                }
+            }
+        }
+    },
+
+    recupChoix:function() {
+        let url = 'http://antonin-piroth.fr/wp-json/wp/v2/posts/?per_page=100';
+    
+        fetch(url)
+            .then(res => res.json())
+            .then((out) => app.afficherFilter(out))
+            .catch(err => { throw err });
+        console.log('Json Done');
+    },
+
+    clearBox:function(elementID) {
+        document.getElementById(elementID).innerHTML = "";
+    },
 
     burgertop: function() {
             $(document).ready(function () {
@@ -120,147 +206,154 @@ var app = {
             });
         });
     }
-    // // Update DOM on a Received Event
-    // receivedEvent: function(id) {
-    //     var parentElement = document.getElementById(id);
-    //     var listeningElement = parentElement.querySelector('.listening');
-    //     var receivedElement = parentElement.querySelector('.received');
 
-    //     listeningElement.setAttribute('style', 'display:none;');
-    //     receivedElement.setAttribute('style', 'display:block;');
-
-    //     console.log('Received Event: ' + id);
-    // }
 };
+// // function recupInfo(data) {
+// //     let url = data;
 
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
+// //     fetch(url)
+// //         .then(res => res.json())
+// //         .then((out) => remplitDocument(out))
+// //         .catch(err => { throw err });
+// //     console.log('Json Done');
+// // }
 
-// function recupInfo(data) {
-//     let url = data;
+// // function remplitDocument(resultat) {
 
-//     fetch(url)
-//         .then(res => res.json())
-//         .then((out) => remplitDocument(out))
-//         .catch(err => { throw err });
-//     console.log('Json Done');
-// }
+// //     //console.log('Checkout this JSON! ', resultat);
 
-// function remplitDocument(resultat) {
+// //     var leContenu = document.getElementById('contenu');
+// //     for (let article of resultat) {
+// //         var nouveauDiv = document.createElement('div');
+// //         nouveauDiv.classList.add('container', 'text-center');
+
+// //         var nouveauDiv2 = document.createElement('div');
+// //         nouveauDiv2.classList.add('col-lg-4', 'col-md-4', 'col-sm-6', 'col-xs-12', 'container_foto');
+
+// //         var nouveauDiv3 = document.createElement('article');
+// //         nouveauDiv3.classList.add('text-left');
+
+// //         var nouveauDiv4 = document.createElement('h2');
+// //         nouveauDiv4.classList.add('nomdesartistes');
+
+// //         var artistDiv = document.createElement('a');
+// //         artistDiv.classList.add('aClass');
+
+// //         var bannerDiv = document.createElement('img');
+// //         bannerDiv.classList.add('banner');
+
+// //         var bannerUrl = article.acf.banniere.sizes.thumbnail;
+// //         bannerDiv.src = bannerUrl;
+
+// //         var artistID = article.id;
+// //         artistDiv.innerHTML = article.acf.nom_artiste;
+// //         artistDiv.href = "artist.html?id=" + artistID + "";
+// //         nouveauDiv2.appendChild(bannerDiv);
+// //         nouveauDiv4.appendChild(artistDiv);
+// //         nouveauDiv3.appendChild(nouveauDiv4);
+// //         nouveauDiv2.appendChild(nouveauDiv3);
+// //         nouveauDiv.appendChild(nouveauDiv2);
+// //         leContenu.appendChild(nouveauDiv);
+// //     }
+// // }
+
+// // //Trouver comment passer en argument le lien article._links.self pour accéder aux données de l'artiste sur lequel on clique
+
+// // function remplitDocumentArtist(resultat) {
+
+// //     console.log('Checkout this JSON! ', resultat);
+
+// //     var leContenu = document.getElementById('contenu');
+// //     var nouveauDiv = document.createElement('div');
+// //     nouveauDiv.classList.add('divClass');
+// //     var bannerDiv = document.createElement('img');
+// //     bannerDiv.classList.add('banner');
+// //     var artistDiv = document.createElement('h2');
+// //     artistDiv.classList.add('h2Class');
+// //     var infoDiv = document.createElement('p');
+// //     infoDiv.classList.add('pClass');
+// //     var bannerUrl = resultat.acf.banniere.sizes.thumbnail;
+// //     bannerDiv.src = bannerUrl;
+// //     artistDiv.innerHTML = resultat.acf.nom_artiste;
+// //     infoDiv.innerHTML = "Date du concert : " +resultat.acf.date_concert+ ", heure du concert : " +resultat.acf.heure_concert+ ", scène : " +resultat.acf.scene+"";
+// //     nouveauDiv.appendChild(bannerDiv);
+// //     nouveauDiv.appendChild(artistDiv);
+// //     nouveauDiv.appendChild(infoDiv);
+// //     leContenu.appendChild(nouveauDiv);
+// // }
+
+// /* function remplitDocument(resultat) {
 
 //     //console.log('Checkout this JSON! ', resultat);
 
 //     var leContenu = document.getElementById('contenu');
 //     for (let article of resultat) {
 //         var nouveauDiv = document.createElement('div');
-//         nouveauDiv.classList.add('container', 'text-center');
-
-//         var nouveauDiv2 = document.createElement('div');
-//         nouveauDiv2.classList.add('col-lg-4', 'col-md-4', 'col-sm-6', 'col-xs-12', 'container_foto');
-
-//         var nouveauDiv3 = document.createElement('article');
-//         nouveauDiv3.classList.add('text-left');
-
-//         var nouveauDiv4 = document.createElement('h2');
-//         nouveauDiv4.classList.add('nomdesartistes');
-
-//         var artistDiv = document.createElement('a');
-//         artistDiv.classList.add('aClass');
-
+//         nouveauDiv.classList.add('divClass');
 //         var bannerDiv = document.createElement('img');
 //         bannerDiv.classList.add('banner');
-
+//         var artistDiv = document.createElement('a');
+//         artistDiv.classList.add('aClass');
 //         var bannerUrl = article.acf.banniere.sizes.thumbnail;
 //         bannerDiv.src = bannerUrl;
-
 //         var artistID = article.id;
 //         artistDiv.innerHTML = article.acf.nom_artiste;
 //         artistDiv.href = "artist.html?id=" + artistID + "";
-//         nouveauDiv2.appendChild(bannerDiv);
-//         nouveauDiv4.appendChild(artistDiv);
-//         nouveauDiv3.appendChild(nouveauDiv4);
-//         nouveauDiv2.appendChild(nouveauDiv3);
-//         nouveauDiv.appendChild(nouveauDiv2);
+//         nouveauDiv.appendChild(bannerDiv);
+//         nouveauDiv.appendChild(artistDiv);
 //         leContenu.appendChild(nouveauDiv);
 //     }
-// }
+// } */
 
-// //Trouver comment passer en argument le lien article._links.self pour accéder aux données de l'artiste sur lequel on clique
 
-// function recupID() {
-//     if ((window.location.href).indexOf('?') != -1) {
-//         var queryString = (window.location.href).substr((window.location.href).indexOf('?') + 1);
+// /*
+// /////////////// Filtrage ///////////////////
 
-//         // "queryString" will now contain id=/article.id/
+// function afficherFilter(resultat) {
+//     clearBox('contenu');
+//     console.log('Le tableau :');
+//     console.log(resultat);
+//     console.log('La taille du tableau : ' + resultat.length);
 
-//         var value = (queryString.split('='))[1];
-
-//         // "value" will now contain /article.id/
-
-//         console.log(value);
-//         recupInfoArtist(value);
+//     var strDate = document.getElementById('date');
+//     var strScene = document.getElementById('scene');
+//     var strHeure = document.getElementById('heure');
+//     var strGenre = document.getElementById('genre');
+//     var i;
+//     for (i = 0; i < resultat.length; i++) {
+//         if ((strDate.value == "default" || strDate.options[strDate.selectedIndex].value == resultat[i].acf.date_concert) &&
+//             (strScene.value == "default" || strScene.options[strScene.selectedIndex].value == resultat[i].acf.scene) &&
+//             (strHeure.value == "default" || strHeure.options[strHeure.selectedIndex].value == resultat[i].acf.heure_concert) &&
+//             (strGenre.value == "default" || strGenre.options[strGenre.selectedIndex].value == resultat[i].acf.type_musique)
+//             ) {
+//             if (strDate.options[strDate.selectedIndex].value == "default" && 
+//             strScene.options[strScene.selectedIndex].value == "default" && 
+//             strHeure.options[strHeure.selectedIndex].value == "default" &&
+//             strGenre.options[strGenre.selectedIndex].value == "default") {
+//                 alert('Remplissez les champs');
+//                 break;
+//             } else {
+//                 var leContenu = document.getElementById('contenu');
+//                 var nouveauDiv = document.createElement('div');
+//                 nouveauDiv.classList.add('divClass');
+//                 var bannerDiv = document.createElement('img');
+//                 bannerDiv.classList.add('banner');
+//                 var artistDiv = document.createElement('a');
+//                 artistDiv.classList.add('aClass');
+//                 var bannerUrl = resultat[i].acf.banniere.sizes.thumbnail;
+//                 bannerDiv.src = bannerUrl;
+//                 var artistID = resultat[i].id;
+//                 artistDiv.innerHTML = resultat[i].acf.nom_artiste;
+//                 artistDiv.href = "artist.html?id=" + artistID;
+//                 nouveauDiv.appendChild(bannerDiv);
+//                 nouveauDiv.appendChild(artistDiv);
+//                 leContenu.appendChild(nouveauDiv);
+//             }
+//         }
 //     }
 // }
 
-// function recupInfoArtist(data) {
-//     let url = "https://antonin-piroth.fr/wp-json/wp/v2/posts/" + data;
-
-//     fetch(url)
-//         .then(res => res.json())
-//         .then((out) => remplitDocumentArtist(out))
-//         .catch(err => { throw err });
-//     console.log('Json Done');
+// //////// Nettoyage d'une DIV ///////
+// function clearBox(elementID) {
+//     document.getElementById(elementID).innerHTML = "";
 // }
-
-// function remplitDocumentArtist(resultat) {
-
-//     console.log('Checkout this JSON! ', resultat);
-
-//     var leContenu = document.getElementById('contenu');
-//     var nouveauDiv = document.createElement('div');
-//     nouveauDiv.classList.add('divClass');
-//     var bannerDiv = document.createElement('img');
-//     bannerDiv.classList.add('banner');
-//     var artistDiv = document.createElement('h2');
-//     artistDiv.classList.add('h2Class');
-//     var infoDiv = document.createElement('p');
-//     infoDiv.classList.add('pClass');
-//     var bannerUrl = resultat.acf.banniere.sizes.thumbnail;
-//     bannerDiv.src = bannerUrl;
-//     artistDiv.innerHTML = resultat.acf.nom_artiste;
-//     infoDiv.innerHTML = "Date du concert : " +resultat.acf.date_concert+ ", heure du concert : " +resultat.acf.heure_concert+ ", scène : " +resultat.acf.scene+"";
-//     nouveauDiv.appendChild(bannerDiv);
-//     nouveauDiv.appendChild(artistDiv);
-//     nouveauDiv.appendChild(infoDiv);
-//     leContenu.appendChild(nouveauDiv);
-// }
-
-/* function remplitDocument(resultat) {
-
-    //console.log('Checkout this JSON! ', resultat);
-
-    var leContenu = document.getElementById('contenu');
-    for (let article of resultat) {
-        var nouveauDiv = document.createElement('div');
-        nouveauDiv.classList.add('divClass');
-        var bannerDiv = document.createElement('img');
-        bannerDiv.classList.add('banner');
-        var artistDiv = document.createElement('a');
-        artistDiv.classList.add('aClass');
-        var bannerUrl = article.acf.banniere.sizes.thumbnail;
-        bannerDiv.src = bannerUrl;
-        var artistID = article.id;
-        artistDiv.innerHTML = article.acf.nom_artiste;
-        artistDiv.href = "artist.html?id=" + artistID + "";
-        nouveauDiv.appendChild(bannerDiv);
-        nouveauDiv.appendChild(artistDiv);
-        leContenu.appendChild(nouveauDiv);
-    }
-} */
-
