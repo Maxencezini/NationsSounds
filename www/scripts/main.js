@@ -101,6 +101,9 @@ function remplitDocumentArtist(resultat) {
 
     console.log('Checkout this JSON! ', resultat);
 
+    var musiqueDiv = document.createElement('div');
+    musiqueDiv.classList.add('spotify');
+    musiqueDiv.innerHTML = resultat.content.rendered;
     var leContenu = document.getElementById('contenu');
     var nouveauDiv = document.createElement('div');
     nouveauDiv.classList.add('divClass');
@@ -117,5 +120,6 @@ function remplitDocumentArtist(resultat) {
     nouveauDiv.appendChild(bannerDiv);
     nouveauDiv.appendChild(artistDiv);
     nouveauDiv.appendChild(infoDiv);
+    nouveauDiv.appendChild(musiqueDiv);
     leContenu.appendChild(nouveauDiv);
 }

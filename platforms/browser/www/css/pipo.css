@@ -533,3 +533,20 @@
      background: #30BF88 !important;
      color: #fff !important;
  }
+
+  /* ---------------------------------------------------
+     ARTISTE PAGE CONTENT
+ ----------------------------------------------------- */
+
+ .h2Class {
+     color:#329B82;
+     margin-left:4%;
+ }
+
+ .pClass {
+     margin-left:4%;
+ }
+ .spotify{
+     text-align:center;
+     margin-top:10%;
+ }
