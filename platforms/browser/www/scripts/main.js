@@ -110,7 +110,7 @@ function remplitDocumentArtist(resultat) {
     artistDiv.classList.add('h2Class');
     var infoDiv = document.createElement('p');
     infoDiv.classList.add('pClass');
-    var bannerUrl = resultat.acf.banniere.sizes.thumbnail;
+    var bannerUrl = resultat.acf.banniere.sizes.large;
     bannerDiv.src = bannerUrl;
     artistDiv.innerHTML = resultat.acf.nom_artiste;
     infoDiv.innerHTML = "Date du concert : " +resultat.acf.date_concert+ ", heure du concert : " +resultat.acf.heure_concert+ ", scène : " +resultat.acf.scene+"";
