@@ -93,26 +93,33 @@
     
     <!-- END HEADER -->
 
-    <div id="filter" style="margin-top: 17%;">
-        <select class="custom-select custom-select-lg mb-3" id="date">
-            <option value="default" selected>Veuillez choisir une date</option>
+    <div id="filter" style="margin-top: 17%; padding-left: 1%; padding-right: 1%;">
+        <div class="formfield-select--container">
+        <select id="date">
+            <option value="default" selected><i class="fas fa-table"></i>DATE</option>
             <option value="Vendredi">Vendredi</option>
             <option value="Samedi">Samedi</option>
             <option value="Dimanche">Dimanche</option>
         </select>
+        </div>
+        <div class="formfield-select--containerr">
         <select id="heure">
-            <option value="default" selected>Veuillez choisir une horaire</option>
+            <option value="default" selected><span><i class="far fa-clock"></i></span>HORRAIRE</option>
             <option value="20h00">20h</option>
             <option value="22h00">22h</option>
         </select>
+        </div>
+        <div class="formfield-select--container">
         <select id="scene">
-            <option value="default" selected>Veuillez choisir une scène</option>
+            <option value="default" selected>SCÈNE</option>
             <option value="1">Scène Principale</option>
             <option value="2">Scène 2</option>
             <option value="3">Scène 3</option>
         </select>
+        </div>
+        <div class="formfield-select--containerr">
         <select id="genre">
-            <option value="default" selected>Veuillez choisir un genre musical</option>
+            <option value="default" selected>GENRE</option>
             <option value="Rap / Metal">Rap / Metal</option>
             <option value="RAP US">RAP US</option>
             <option value="Electro chill">Electro chill</option>
@@ -127,8 +134,9 @@
             <option value="Trap / Hip-Hop">Trap / Hip-Hop</option>
             <option value="Hip-Hop / Soul">Hip-Hop / Soul</option>
         </select>
+        </div>
         
-        <button type="submit" onclick="app.recupChoix()">Rechercher</button>
+        <button class="boutonrecherche" type="submit" onclick="app.recupChoix()">RECHERCHER</button>
     </div>
     <div id="contenu"></div>
     <!-- <script>recupChoix();</script> -->

@@ -536,3 +536,86 @@ a.article:hover {
 /*  --------------------------------------------- */
 /*  ------------------ FILTER ------------------- */
 /*  --------------------------------------------- */
+
+.formfield-select--container {
+	position: relative; 
+	background-color: #fff;
+	border: #777 1px solid;
+	margin: 0 2% 2% 0;
+    width: 50%;
+    float: left;
+	overflow: hidden; 
+}
+
+.formfield-select--container select {
+	-webkit-appearance: none;
+	width: 110%; 
+	height: auto;
+	border: 0; 
+	margin: 0;
+	padding: .75em;
+	border-radius: 0;
+	color: black;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.formfield-select--container::after { 
+	content: '';
+	position: absolute;
+	top: 50%; 
+	margin-top: -3px;
+	right: .75em;  
+	display: block; 
+	width: 0; height: 0;
+	border-color: transparent;
+	border-top-color: #444; 
+	border-width: 6px;
+	border-style: solid;
+	pointer-events: none;
+}
+
+.formfield-select--containerr {
+	position: relative; 
+	background-color: #fff;
+	border: #777 1px solid;
+	margin: 0 0 2% 0;
+    width: 48%;
+    float: left;
+	overflow: hidden; 
+}
+
+.formfield-select--containerr select {
+	-webkit-appearance: none;
+	width: 110%; 
+	height: auto;
+	border: 0; 
+	margin: 0;
+	padding: .75em;
+	border-radius: 0;
+	color: black;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.formfield-select--containerr::after { 
+	content: '';
+	position: absolute;
+	top: 50%; 
+	margin-top: -3px;
+	right: .75em;  
+	display: block; 
+	width: 0; height: 0;
+	border-color: transparent;
+	border-top-color: #444; 
+	border-width: 6px;
+	border-style: solid;
+	pointer-events: none;
+}
+
+.boutonrecherche {
+    width: 100%;
+    background-color: #30BF88;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
