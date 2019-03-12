@@ -40,6 +40,7 @@ var app = {
         app.recupInfoArtist();
         app.afficherFilter();
         app.clearBox();
+        app.goAccueil();
     },
 
     recupInfo: function (data) {
@@ -212,7 +213,19 @@ var app = {
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
-    }
+    },
+
+    goAccueil: function() {
+        {
+        var dirPath = dirname(location.href);
+        fullPath = dirPath + "/index.html";
+        window.location=fullPath;
+        }
+        function dirname(path)
+        {
+        return path.replace(/\\/g,'/').replace(/\/[^\/]*$/, '');
+        }
+    },
 
 };
 // // function recupInfo(data) {
