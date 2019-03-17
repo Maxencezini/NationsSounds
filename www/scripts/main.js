@@ -113,13 +113,21 @@ function remplitDocumentArtist(resultat) {
     artistDiv.classList.add('h2Class');
     var infoDiv = document.createElement('p');
     infoDiv.classList.add('pClass');
+    var descriptionDiv = document.createElement('p');
+    descriptionDiv.classList.add('descriptionClass');
     var bannerUrl = resultat.acf.banniere.sizes.large;
     bannerDiv.src = bannerUrl;
     artistDiv.innerHTML = resultat.acf.nom_artiste;
-    infoDiv.innerHTML = "Date du concert : " +resultat.acf.date_concert+ ", heure du concert : " +resultat.acf.heure_concert+ ", scène : " +resultat.acf.scene+"";
+    infoDiv.innerHTML = "Date du concert : " +resultat.acf.date_concert+ '<br>'+
+    '<br>'
+    +"Heure du concert : " +resultat.acf.heure_concert+'<br>'+
+    '<br>'
+    + "Scène : " +resultat.acf.scene+'<br>';
+    descriptionDiv.innerHTML = "DESCRIPTION : " +resultat.acf.description;
     nouveauDiv.appendChild(bannerDiv);
     nouveauDiv.appendChild(artistDiv);
     nouveauDiv.appendChild(infoDiv);
+    nouveauDiv.appendChild(descriptionDiv);
     nouveauDiv.appendChild(musiqueDiv);
     leContenu.appendChild(nouveauDiv);
 }

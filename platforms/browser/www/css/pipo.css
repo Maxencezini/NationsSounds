@@ -541,12 +541,29 @@
  .h2Class {
      color:#329B82;
      margin-left:4%;
+     margin-right:4%;
+     padding:5%;
+     border-radius:20px;
+     font-family: montserrat;
  }
 
  .pClass {
      margin-left:4%;
+     margin-right:4%;
+     padding:5%;
+     border-radius:20px;
+     font-family: montserrat;
  }
  .spotify{
      text-align:center;
      margin-top:10%;
+ }
+ .descriptionClass{
+    margin-left:4%;
+    margin-right:4%;
+    text-transform: none;
+    padding:5%;
+    border-radius:20px;
+    font-family: montserrat;
+    background-color: #329B82;
  }
