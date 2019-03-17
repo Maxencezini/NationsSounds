@@ -41,6 +41,7 @@ var app = {
         app.afficherFilter();
         app.clearBox();
         app.goAccueil();
+        app.mapFilter();
     },
 
     recupInfo: function (data) {
@@ -227,6 +228,17 @@ var app = {
         }
     },
 
+    mapFilter: function(){
+        if(document.getElementById('STbox').checked){
+            document.getElementById('ST1').style.display = 'block';
+            document.getElementById('ST2').style.display = 'block';
+            document.getElementById('ST3').style.display = 'block';
+        } else {
+            document.getElementById('ST1').style.display = 'none';
+            document.getElementById('ST2').style.display = 'none';
+            document.getElementById('ST3').style.display = 'none';
+        }
+    }
 };
 // // function recupInfo(data) {
 // //     let url = data;
