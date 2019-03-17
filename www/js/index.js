@@ -377,3 +377,65 @@ var app = {
 // function clearBox(elementID) {
 //     document.getElementById(elementID).innerHTML = "";
 // }
+
+
+//////// Notifications /////////
+
+///// HTML //////
+/* <button id="push" onclick="afficherNotif()"></button>
+    <div id="notification" style="display: none">
+        <button id="close" onclick="fermerNotif()">X</button>
+    </div> */
+
+/////// JS //////
+
+/* function recupNotif() {
+    let url = 'http://antonin-piroth.fr/wp-json/wp/v2/posts/?per_page=100';
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => afficherPoint(out))
+        .catch(err => { throw err });
+}
+
+function afficherPoint(resultat) {
+    var compteur = 0;
+    for (i = 0; i < resultat.length; i++) {
+        if (resultat[i].categories[0] == '5') {
+            var compteur = compteur + 1;
+
+            var buttonDiv = document.getElementById('push');
+            buttonDiv.innerHTML = compteur;
+            var parentDiv = document.getElementById('notification');
+            var titlenews = document.createElement('p');
+            titlenews.innerHTML = resultat[i].title.rendered;
+            var contentnews = document.createElement('p');
+            contentnews.innerHTML = resultat[i].content.rendered;
+            parentDiv.appendChild(titlenews);
+            parentDiv.appendChild(contentnews);
+        }
+    }
+}
+
+function afficherNotif() {
+    document.getElementById('notification').style.display = "block";
+}
+
+function fermerNotif() {
+    document.getElementById('notification').style.display = "none";
+} */
+
+
+
+////////////// FILTER SUR LA MAP /////////////////
+/* function mapFilter(){
+    if(document.getElementById('STbox').checked){
+        document.getElementById('ST1').style.display = 'block';
+        document.getElementById('ST2').style.display = 'block';
+        document.getElementById('ST3').style.display = 'block';
+    } else {
+        document.getElementById('ST1').style.display = 'none';
+        document.getElementById('ST2').style.display = 'none';
+        document.getElementById('ST3').style.display = 'none';
+    }
+} */
