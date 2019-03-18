@@ -545,6 +545,7 @@
      padding:5%;
      border-radius:20px;
      font-family: montserrat;
+     margin-bottom: -20px;
  }
 
  .pClass {
@@ -563,7 +564,7 @@
     margin-right:4%;
     text-transform: none;
     padding:5%;
-    border-radius:20px;
+    border-radius:5px;
     font-family: montserrat;
     background-color: #329B82;
  }
