@@ -10,7 +10,6 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
@@ -21,6 +20,18 @@
     <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
+
+    <gap:plugin name="onesignal-cordova-plugin" spec="^2.4.1" source="npm" />
+
+    <!-- Requires cli-8.0.0 but we recommend using the latest version. -->
+    <preference name="phonegap-version" value="cli-8.0.0" />
+
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="android-minSdkVersion" value="16" />
+
+    <!-- Can omit if not targetting Windows Phone -->
+    <preference name="windows-appx-target" value="8.1-phone" />
+    <preference name="WindowsToastCapable" value="true" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
     <plugin name="cordova-plugin-geolocation" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />

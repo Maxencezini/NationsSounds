@@ -181,6 +181,21 @@
     <script type="text/javascript">
         app.initialize();
     </script>
+    <script>
+        document.addEventListener('deviceready', function () {
+            // Enable to debug issues.
+            // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+            
+            var notificationOpenedCallback = function(jsonData) {
+              console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            };
+          
+            window.plugins.OneSignal
+              .startInit("53609973-906a-4364-b3a4-e80e535a6844")
+              .handleNotificationOpened(notificationOpenedCallback)
+              .endInit();
+          }, false);
+    </script>
 </body>
 
 </html>

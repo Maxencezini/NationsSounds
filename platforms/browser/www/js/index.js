@@ -29,6 +29,7 @@ var app = {
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
+
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
@@ -42,7 +43,18 @@ var app = {
         app.clearBox();
         app.goAccueil();
         app.mapFilter();
-    },
+
+
+        /* FONCTION POUR NOTIFICATION PUSH */
+        var notificationOpenedCallback = function(jsonData) {
+            console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+          };
+        
+          window.plugins.OneSignal
+            .startInit("53609973-906a-4364-b3a4-e80e535a6844")
+            .handleNotificationOpened(notificationOpenedCallback)
+            .endInit();
+        },
 
     recupInfo: function (data) {
         let url = data;

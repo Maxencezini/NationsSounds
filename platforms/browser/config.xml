@@ -14,6 +14,7 @@
         W.A.S.P
     </author>
     <content src="index.html" />
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="^2.4.1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-navigation href="https://antonin-piroth.fr/*" />
@@ -26,5 +27,9 @@
     <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="windows-appx-target" value="8.1-phone" />
+    <preference name="WindowsToastCapable" value="true" />
 </widget>
