@@ -131,3 +131,22 @@ function remplitDocumentArtist(resultat) {
     nouveauDiv.appendChild(musiqueDiv);
     leContenu.appendChild(nouveauDiv);
 }
+
+function recupInfosPratiques(data) {
+    let url = "https://antonin-piroth.fr/wp-json/wp/v2/pages/?slug=" + data;
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => afficherInfosPratiques(out))
+        .catch(err => { throw err });
+    console.log('Json Done');
+}
+
+function afficherInfosPratiques (page) {
+    console.log(page);
+
+   for (let article of page ){
+    var infosDiv = document.getElementById('infos');
+    infosDiv.innerHTML = article.content.rendered;
+   }
+}
