@@ -55,6 +55,12 @@ body {
 
 h1 {
     font-family: 'BIRB';
+    font-size: 30px;
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-size: 20px;
 }
 
 header {
