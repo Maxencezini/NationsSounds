@@ -44,6 +44,16 @@ var app = {
         app.goAccueil();
         app.mapFilter();
 
+        window.plugins.PushbotsPlugin.initialize("5ca248580540a366b83faf22", {"android":{"sender_id":"1085324559565"}});
+        // Only with First time registration
+        window.plugins.PushbotsPlugin.on("registered", function(token){
+            console.log("Registration Id:" + token);
+        });
+
+        //Get user registrationId/token and userId on PushBots, with evey launch of the app even launching with notification
+        window.plugins.PushbotsPlugin.on("user:ids", function(data){
+            console.log("user:ids" + JSON.stringify(data));
+        });
 
         /* FONCTION POUR NOTIFICATION PUSH */
         var notificationOpenedCallback = function(jsonData) {
@@ -55,6 +65,7 @@ var app = {
             .handleNotificationOpened(notificationOpenedCallback)
             .endInit();
         },
+
 
     recupInfo: function (data) {
         let url = data;
