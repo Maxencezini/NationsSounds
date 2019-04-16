@@ -17,6 +17,7 @@
     <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="^2.4.1" />
     <gap:plugin name="com.pushbots.push" source="plugins.cordova.io" version="1.2.1" />
     <access origin="*" />
+    <access origin="*.pushbots.com" />
     <allow-intent href="http://*/*" />
     <allow-navigation href="https://antonin-piroth.fr/*" />
     <allow-navigation href="https://antonin-piroth.fr/wp-json/wp/v2/posts/" />
