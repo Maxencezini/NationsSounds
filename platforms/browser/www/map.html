@@ -22,74 +22,13 @@
 
 <body>
 
-      <!-- MENU LEFT -->
+    <!-- DEBUT HEADER -->
 
-      <div class="wrapper">
-          <!-- Sidebar  -->
-          <nav id="sidebar">
-              <div id="dismiss">
-                  <i class="fas fa-arrow-left"></i>
-              </div>
-  
-              <div class="sidebar-header">
-                  <h3 class="h3burger">Nations Sounds</h3>
-              </div>
+    <div id="jsheaderarrow"></div>
+    <script> headerwitharrow();</script>
+    
+    <!-- FIN HEADER -->
 
-              <ul class="list-unstyled components">
-                  <li class="active">
-                      <i class="fas fa-home"></i><a href="index.html" onClick="app.goAccueil();" data-toggle="collapse" aria-expanded="false">ACCUEIL</a>
-                  </li>
-                  <li>
-                      <span class="svg_menu"><i class="fas fa-calendar-alt"></i></span><a href="#"> PROGRAMMATION</a>
-                  </li>
-                  <li> 
-                      <span class="svg_menu"><i class="fas fa-info-circle"></i></span><a href="infos.html"> INFOS PRATIQUES</a>
-                  </li>
-                  <li>
-                      <span class="svg_menu"><i class="fas fa-ticket-alt"></i></span><a href="#">BILLETERIE</a>
-                  </li>
-                  <li>
-                      <span class="svg_menu"><i class="fas fa-map-marked-alt"></i></span><a href="#">PLAN</a>
-                  </li>
-                  <li>
-                      <span class="svg_menu"><i class="fas fa-shopping-cart"></i></span><a href="#">BOUTIQUE</a>
-                  </li>
-                  <li>
-                      <span class="svg_menu"><i class="fas fa-handshake"></i></span><a href="#">PARTENAIRES</a>
-                  </li>
-                  <li class="lirs">
-                      <a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-twitter"></i></span></a><a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-instagram"></i></span></a><a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-facebook-f"></i></span></a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
-
-      <div class="overlay"></div>
-
-  <!-- FIN MENU LEFT -->
-
-  <header>
-      <div class="burger_top_header">
-          <a id="sidebarCollapse" href="#">
-              <span class="icone_burger">
-                  <i class="fas fa-bars"></i>
-              </span>
-          </a>
-      </div>
-      <div class="titre_app_header">
-          <h1 class="header__title">NATIONS SOUNDS</h1>
-      </div>
-      <div class="etoile_fav_header">
-          <a href="#">
-              <span class="icone_etoile">
-                  <i class="fas fa-star"></i>
-              </span>
-          </a>
-      </div>
-  </header>
-  
-  <!-- END HEADER -->
-  <div id="affichartiste">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filtres</span>
   <div id="mySidenav" class="sidenav d-flex flex-column">
     <div class="d-flex justify-content-end padd">
@@ -118,43 +57,18 @@
   </div>
   <!--The div element for the map -->
   <div id="map"></div>
-  </div>
   <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
     * The key parameter will contain your own API key (which is not needed for this tutorial)
     * The callback parameter executes the initMap() function
     -->
 
-    <footer>
-      <div class="mobile-app-icon-bar">
+    <!-- DEBUT FOOTER -->
 
-          <div class="map_bot_footer">
-              <a href="map.html">
-                  <span class="icone_map">
-                      <i class="fas fa-map-marked-alt"></i>
-                  </span>
-              </a>
-          </div>
-
-          <div class="logo_bot_footer">
-              <div id="carre"></div>
-              <a href="#">
-                  <span class="icone_logo">
-                      <img class="img_logo" src="img/logo_ns.svg">
-                  </span>
-              </a>
-          </div>
-
-          <div class="musique_bot_footer">
-              <a href="filter.html">
-                  <span class="icone_musique">
-                      <i class="fas fa-music"></i>
-                  </span>
-              </a>
-          </div>
-
-        </div>
-      </footer>
+    <div id="jsfooter"></div>
+    <script> footer();</script>
+    
+    <!-- FIN HEADER -->
 
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhRBrOuojv2d5oiam2XG2OZl3KQ43R9XY&callback=recupPins">
