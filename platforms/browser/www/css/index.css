@@ -488,8 +488,8 @@ li {
 }
 
 #sidebar ul li a:hover {
-    color: #30BF88;
-    background: #fff;
+    color: #fff;
+    text-decoration: none;
 }
 
 #sidebar ul li.active>a,

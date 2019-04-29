@@ -150,3 +150,22 @@ function afficherInfosPratiques (page) {
     infosDiv.innerHTML = article.content.rendered;
    }
 }
+
+function recupPartenaires(data) {
+    let url = "https://antonin-piroth.fr/wp-json/wp/v2/pages/?slug=" + data;
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => afficherPartenaires(out))
+        .catch(err => { throw err });
+    console.log('Json Done');
+}
+
+function afficherPartenaires (page) {
+    console.log(page);
+
+   for (let article of page ){
+    var infosDiv = document.getElementById('infos');
+    infosDiv.innerHTML = article.content.rendered;
+   }
+}

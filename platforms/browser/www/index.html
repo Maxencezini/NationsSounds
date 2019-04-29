@@ -80,13 +80,13 @@
                         <span class="svg_menu"><i class="fas fa-ticket-alt"></i></span><a href="#">BILLETERIE</a>
                     </li>
                     <li>
-                        <span class="svg_menu"><i class="fas fa-map-marked-alt"></i></span><a href="#">PLAN</a>
+                        <span class="svg_menu"><i class="fas fa-map-marked-alt"></i></span><a href="map.html">PLAN</a>
                     </li>
                     <li>
                         <span class="svg_menu"><i class="fas fa-shopping-cart"></i></span><a href="#">BOUTIQUE</a>
                     </li>
                     <li>
-                        <span class="svg_menu"><i class="fas fa-handshake"></i></span><a href="#">PARTENAIRES</a>
+                        <span class="svg_menu"><i class="fas fa-handshake"></i></span><a href="partenaires.html">PARTENAIRES</a>
                     </li>
                     <li class="lirs">
                         <a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-twitter"></i></span></a><a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-instagram"></i></span></a><a class="lienrs" href="#"><span class="reseausociaux"><i class="fab fa-facebook-f"></i></span></a>
@@ -124,6 +124,9 @@
     <div id="affichartiste">
     </div>
 
+    <script>
+    $.post("test.html", {variable: "test"}, function(data){alert(data);});
+    </script>
     <!-- ___________________DEBUG MODE___________________ -->
     <!-- <div id="debug"></div>
     <div id="debug2"></div>
