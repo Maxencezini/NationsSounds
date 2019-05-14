@@ -43,6 +43,10 @@ var app = {
         app.clearBox();
         app.goAccueil();
         app.mapFilter();
+        app.recupNotif();
+        app.afficherPoint();
+        app.afficherNotif();
+        app.fermerNotif();
 
         window.plugins.PushbotsPlugin.initialize("5ca248580540a366b83faf22", {"android":{"sender_id":"1085324559565"}});
         // Only with First time registration
@@ -261,7 +265,43 @@ var app = {
             document.getElementById('ST2').style.display = 'none';
             document.getElementById('ST3').style.display = 'none';
         }
-    }
+    },
+
+    recupNotif: function() {
+        let url = 'http://antonin-piroth.fr/wp-json/wp/v2/posts/?per_page=100';
+    
+        fetch(url)
+            .then(res => res.json())
+            .then((out) => afficherPoint(out))
+            .catch(err => { throw err });
+    },
+    
+    afficherPoint: function(resultat) {
+        var compteur = 0;
+        for (i = 0; i < resultat.length; i++) {
+            if (resultat[i].categories[0] == '5') {
+                var compteur = compteur + 1;
+    
+                var buttonDiv = document.getElementById('push');
+                buttonDiv.innerHTML = compteur;
+                var parentDiv = document.getElementById('notification');
+                var titlenews = document.createElement('p');
+                titlenews.innerHTML = resultat[i].title.rendered;
+                var contentnews = document.createElement('p');
+                contentnews.innerHTML = resultat[i].content.rendered;
+                parentDiv.appendChild(titlenews);
+                parentDiv.appendChild(contentnews);
+            }
+        }
+    },
+    
+    afficherNotif: function(){
+        document.getElementById('notification').style.display = "block";
+    },
+    
+    fermerNotif: function(){
+        document.getElementById('notification').style.display = "none";
+    },
 };
 // // function recupInfo(data) {
 // //     let url = data;

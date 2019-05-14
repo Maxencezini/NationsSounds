@@ -53,7 +53,7 @@ function initMap(resultats) {
             
             dest = new google.maps.LatLng(parseFloat(pins.acf.latitude), parseFloat(pins.acf.longitude));
 
-            let contentString = "<div>" + pins.acf.name + "</div>" + "<button onclick=\"calculateRoute(" + dest + ")\">Itinéraire</button>";
+            let contentString = "<div class=\"nompins\">" + pins.acf.name + "</div>" + "<button class=\"buttonpins\" onclick=\"calculateRoute(" + dest + ")\">ITINÉRAIRE</button>";
             let infowindow = new google.maps.InfoWindow({ content: contentString });
 
             let lemarker = new google.maps.Marker({ position: coord, map: map, tag: pins.acf.categorie, /*label: {text: pins.acf.name, color: "#000000"},*/ icon: img });

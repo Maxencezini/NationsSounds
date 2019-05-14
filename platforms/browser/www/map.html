@@ -29,8 +29,9 @@
     <script> headerwitharrow();</script>
     
     <!-- FIN HEADER -->
-
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filtres</span>
+  <div class="containerfilter">
+  <span class="spanfilter" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filtres</span>
+  </div>
   <div id="mySidenav" class="sidenav d-flex flex-column">
     <div class="d-flex justify-content-end padd">
       <span style="font-size:30px;cursor:pointer" class="whitetext" onclick="closeNav()">X</span>
@@ -51,7 +52,7 @@
       <label class="whitetext" for="chkobjets">Objets trouvés
         <input type="checkbox" id="chkobjets" name="chk" value="objets" onchange="hideshow('chkobjets')"></label>
       <label class="whitetext" for="chkwc">WC
-        <input type="checkbox" id="chkwc" name="chk" value="wc" onchange="hideshow('chkwc')"></label>
+        <input type="checkbox" id="chkwc" name="chk" value="wc" onchange="hideshow('chkwc')"></label><br>
       <label class="whitetext" for="chkparking">Parking
         <input type="checkbox" id="chkparking" name="chk" value="parking" onchange="hideshow('chkparking')"></label>
     </div>

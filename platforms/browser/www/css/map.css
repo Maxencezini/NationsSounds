@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #30BF88;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -33,8 +33,29 @@
 }
 .whitetext{
     color: white;
+    display: inline-block;
+    font-size: 22px;
 }
 
 .padd{
     padding: 15px;
+}
+
+.padd {
+    text-align: left;
+    padding-left: 7%;
+}
+
+#chkscene {
+    size: 10px;
+}
+
+.spanfilter {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.containerfilter {
+    text-align: center;
 }

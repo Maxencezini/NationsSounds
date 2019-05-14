@@ -626,3 +626,23 @@ a.article:hover {
     padding-bottom: 1%;
     margin-bottom: 1%;
 }
+
+/*  --------------------------------------------- */
+/*  ------------------ MAP CSS ------------------- */
+/*  --------------------------------------------- */
+
+.nompins {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5%;
+    text-decoration: underline;
+}
+
+.buttonpins {
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 18px;
+    display: inline-block;
+    background-color: #30BF88;
+}
